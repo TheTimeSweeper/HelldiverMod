@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "com.passivepicasso.simplyaddress": "ssh://git@github.com/PassivePicasso/SimplyAddress.git",
     "com.passivepicasso.thunderkit": "ssh://git@github.com/PassivePicasso/ThunderKit.git",
+    "com.unity.assetbundlebrowser": "1.7.0",
     "com.unity.ide.vscode": "1.2.3",
+    "com.unity.postprocessing": "2.3.0",
     "com.unity.timeline": "1.2.18",
     "com.unity.ugui": "1.0.0",
     "riskofthunder-ror2importextensions": "ssh://git@github.com/risk-of-thunder/RoR2ImportExtensions.git",

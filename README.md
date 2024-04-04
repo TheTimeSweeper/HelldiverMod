@@ -11,7 +11,7 @@ optionally, git@github.com:PassivePicasso/SimplyAddress.git
 |Check Unity Version | On | |
 |Disable Assembly Updater | On | |
 |Post Processing Unity Package Installer | On |  |
-|TextMeshPro Uninstaller | On | Unity's TextMeshPro causes conflicts with the game's modified TextMeshPro. The editor scripts are included in the project for use in editor |
+|TextMeshPro Uninstaller | Off |  |
 |Unity GUI Uninstaller | Off | We need the editor tools otherwise we're going to be huge masochists. This option would have destroyed our ability to do any UI, which we need to be able to do |
 |Assembly Publicizer | leave as is| you should have NStrip in the field, and the assemblies should be RoR2.dll and KinematicCharacterController.dll |
 |MMHook Generator | Off | we're not building the mod from the editor so we don't need extra bloat |

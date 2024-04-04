@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "bbepis-bepinexpack": {
+      "version": "file:BepInExPack",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.passivepicasso.simplyaddress": {
+      "version": "ssh://git@github.com/PassivePicasso/SimplyAddress.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "930d0c66e70d514cfcba88c85f46dbb1312d34db"
+    },
     "com.passivepicasso.thunderkit": {
       "version": "ssh://git@github.com/PassivePicasso/ThunderKit.git",
       "depth": 0,
@@ -9,8 +22,22 @@
       },
       "hash": "c63a5c279e98d1e888bad5f3038db94a4140c39d"
     },
+    "com.unity.assetbundlebrowser": {
+      "version": "1.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ide.vscode": {
       "version": "1.2.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "2.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -43,6 +70,30 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "riskofrain2": {
+      "version": "file:Risk of Rain 2",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-bepinex_gui": {
+      "version": "file:BepInEx_GUI",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-fixplugintypesserialization": {
+      "version": "file:FixPluginTypesSerialization",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-ror2bepinexpack": {
+      "version": "file:RoR2BepInExPack",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "riskofthunder-ror2importextensions": {
       "version": "ssh://git@github.com/risk-of-thunder/RoR2ImportExtensions.git",
