@@ -32,6 +32,15 @@ namespace HellDiverMod.Modules {
         public static List<GameObject> networkedObjects = new List<GameObject>();
 
         public static List<IEnumerator> asyncLoadCoroutines = new List<IEnumerator>();
+        public IEnumerator loadCoroutine = null;
+        public IEnumerator LoadCoroutine {
+            get {
+                if(loadCoroutine == null) {
+                    loadCoroutine = RunLoadCoroutines();
+                }
+                return loadCoroutine;
+            }
+        }
 
         public void Initialize()
         {
@@ -42,16 +51,23 @@ namespace HellDiverMod.Modules {
         {
             addContentPackProvider(this);
         }
-        
-        public System.Collections.IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
-        {
-            this.contentPack.identifier = this.identifier;
+
+        public IEnumerator RunLoadCoroutines() {
+
             Log.CurrentTime("LoadStaticContentAsync start");
-            for (int i = 0; i < asyncLoadCoroutines.Count; i++)
-            {
+            for (int i = 0; i < asyncLoadCoroutines.Count; i++) {
                 while (asyncLoadCoroutines[i].MoveNext()) yield return null;
             }
             Log.CurrentTime("LoadStaticContentAsync done");
+        }
+
+        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+        {
+            this.contentPack.identifier = this.identifier;
+
+            while (LoadCoroutine.MoveNext()) {
+                yield return null;
+            }
 
             contentPack.bodyPrefabs.Add(bodyPrefabs.ToArray());
             contentPack.masterPrefabs.Add(masterPrefabs.ToArray());
