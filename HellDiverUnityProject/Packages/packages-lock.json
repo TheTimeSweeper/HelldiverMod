@@ -7,14 +7,14 @@
       "dependencies": {}
     },
     "com.passivepicasso.simplyaddress": {
-      "version": "ssh://git@github.com/PassivePicasso/SimplyAddress.git",
+      "version": "https://github.com/PassivePicasso/SimplyAddress.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "930d0c66e70d514cfcba88c85f46dbb1312d34db"
     },
     "com.passivepicasso.thunderkit": {
-      "version": "ssh://git@github.com/PassivePicasso/ThunderKit.git",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -96,7 +96,7 @@
       "dependencies": {}
     },
     "riskofthunder-ror2importextensions": {
-      "version": "ssh://git@github.com/risk-of-thunder/RoR2ImportExtensions.git",
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
