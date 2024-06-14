@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HellDiverMod.Survivors.HellDiver.Components.UI
-{
+namespace HellDiverMod.Survivors.HellDiver.Components.UI {
     public class HellDiverUI : MonoBehaviour, ICompanionUI<StratagemInputController>
     {
         [SerializeField]

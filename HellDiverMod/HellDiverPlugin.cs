@@ -17,6 +17,7 @@ namespace HellDiverMod
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
     public class HellDiverPlugin : BaseUnityPlugin
     {
+        public static bool failFaster = false;
         public const string MODUID = "com.SuperEarthArmedForces.Helldiver";
         public const string MODNAME = "Helldiver";
         public const string MODVERSION = "0.0.0";
@@ -44,7 +45,12 @@ namespace HellDiverMod
 
             new Survivors.HellDiver.HellDiverSurvivor().Initialize();
 
-            new Modules.ContentPacks().Initialize();
+            Modules.ContentPacks contentPacks = new Modules.ContentPacks();
+            contentPacks.Initialize();
+
+            if (failFaster) {
+                StartCoroutine(contentPacks.LoadCoroutine);
+            }
         }
     }
 }

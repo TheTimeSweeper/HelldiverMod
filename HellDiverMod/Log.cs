@@ -42,6 +42,7 @@ namespace HellDiverMod
         //}
         internal static void CurrentTime(string funny)
         {
+            return;
             //if (General.GeneralConfig.Debug.Value)
             //{
                 funnyLog += "\n" + funny;
@@ -54,6 +55,7 @@ namespace HellDiverMod
 
         internal static void AllTimes()
         {
+            return;
             if (!string.IsNullOrEmpty(timesLog))
             {
                 Log.Warning(timesLog);

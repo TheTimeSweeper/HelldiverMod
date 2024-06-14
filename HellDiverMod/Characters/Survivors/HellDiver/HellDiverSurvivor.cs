@@ -26,8 +26,8 @@ namespace HellDiverMod.Survivors.HellDiver
         
         public override string masterName => "HellDiverMonsterMaster";
 
-        public override string modelPrefabName => "mdlJoe";
-        public override string displayPrefabName => "JoeDisplay";
+        public override string modelPrefabName => "mdlHellDiver";
+        public override string displayPrefabName => "HellDiverDisplay";
 
         public const string HELLDIVER_PREFIX = HellDiverPlugin.DEVELOPER_PREFIX + "_HELLDIVER_";
 
@@ -45,7 +45,7 @@ namespace HellDiverMod.Survivors.HellDiver
 
             //crosshairBundlePath = "GICrosshair",
             crosshairAddressablePath = "RoR2/Base/UI/StandardCrosshair.prefab",
-            podPrefabAddressablePath = "RoR2/Base/SurvivorPod/SurvivorPod.prefab",
+            podPrefabBundlePath = "HellPod",
 
             maxHealth = 140f,
             healthRegen = 2.0f,
