@@ -17,7 +17,7 @@ namespace HellDiverMod
         public static bool failFaster = false;
         public const string MODUID = "com.SuperEarthArmedForces.Helldiver";
         public const string MODNAME = "Helldiver";
-        public const string MODVERSION = "0.0.0";
+        public const string MODVERSION = "1.0.0";
 
         public const string DEVELOPER_PREFIX = "LIBERTEA";
 

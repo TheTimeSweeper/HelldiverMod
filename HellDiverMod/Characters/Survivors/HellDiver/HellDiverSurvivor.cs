@@ -47,9 +47,11 @@ namespace HellDiverMod.Survivors.HellDiver
             crosshairAddressablePath = "RoR2/Base/UI/StandardCrosshair.prefab",
             podPrefabBundlePath = "HellPod",
 
-            maxHealth = 140f,
-            healthRegen = 2.0f,
-            armor = 10f,
+            maxHealth = 60f,
+            healthGrowth = 60f * 0.15f,
+            shield = 20f,
+            shieldGrowth = 20f * 0.15f,
+            armor = -10f,
 
             jumpCount = 1,
         };
