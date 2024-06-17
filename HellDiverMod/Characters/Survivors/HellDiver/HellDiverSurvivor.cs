@@ -710,6 +710,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 {
                     self.spawnedAnyPlayer = true;
                 }
+                characterMaster.GetBody().modelLocator.modelBaseTransform.GetComponent<CharacterModel>().invisibilityCount++;
                 Run.instance.HandlePlayerFirstEntryAnimation(characterMaster.GetBody(), vector, quaternion);
             }
             else

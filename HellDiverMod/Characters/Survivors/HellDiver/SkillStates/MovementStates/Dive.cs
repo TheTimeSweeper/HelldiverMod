@@ -82,7 +82,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.isAuthority && (bool)base.characterMotor)
+            if (base.isAuthority && base.characterMotor)
             {
                 base.characterMotor.moveDirection = base.inputBank.moveVector;
                 if (base.fixedAge >= minimumDuration && (detonateNextFrame || (base.characterMotor.Motor.GroundingStatus.IsStableOnGround && !base.characterMotor.Motor.LastGroundingStatus.IsStableOnGround)))
