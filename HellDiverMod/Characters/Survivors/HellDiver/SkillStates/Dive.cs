@@ -64,7 +64,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             }
             base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
             GetModelTransform().GetComponent<AimAnimator>().enabled = true;
-            PlayCrossfade("Gesture, Override", "Dive", 0.1f);
+            PlayCrossfade("FullBody, Override", "Dive", 0.1f);
             Util.PlaySound(leapSoundString, base.gameObject);
             base.characterDirection.moveVector = direction;
             if (base.isAuthority)
