@@ -166,7 +166,10 @@ namespace HellDiverMod.Modules
         {
             return CreateSkillDef<SkillDef>(skillDefInfo);
         }
-
+        public static ReloadSkillDef CreateReloadSkillDef(ReloadSkillDefInfo skillDefInfo)
+        {
+            return CreateReloadSkillDef<ReloadSkillDef>(skillDefInfo);
+        }
         public static T CreateSkillDef<T>(SkillDefInfo skillDefInfo) where T : SkillDef
         {
             //pass in a type for a custom skilldef, e.g. HuntressTrackingSkillDef
