@@ -1,0 +1,447 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: maskDiverLeftArm
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/ROOT
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/ik.head
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l/foot.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.l/calf.l/foot.l/toe.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r/foot.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/pelvis/thigh.r/calf.r/foot.r/toe.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeLeft
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeLeft/CapeLeft.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeLeft/CapeLeft.001/CapeLeft.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeLeft/CapeLeft.001/CapeLeft.002/CapeLeft.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeLeft/CapeLeft.001/CapeLeft.002/CapeLeft.003/CapeLeft.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeMiddle
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeMiddle/CapeMiddle.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeMiddle/CapeMiddle.001/CapeMiddle.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeMiddle/CapeMiddle.001/CapeMiddle.002/CapeMiddle.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeMiddle/CapeMiddle.001/CapeMiddle.002/CapeMiddle.003/CapeMiddle.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeRight
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeRight/CapeRight.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeRight/CapeRight.001/CapeRight.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeRight/CapeRight.001/CapeRight.002/CapeRight.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/CapeRight/CapeRight.001/CapeRight.002/CapeRight.003/CapeRight.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l/BackHat.l.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l/BackHat.l.001/BackHat.l.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.003/BackHat.l.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.003/BackHat.l.004/BackHat.l.005
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.006
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.006/BackHat.l.007
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.006/BackHat.l.007/BackHat.l.008
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.009
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.009/BackHat.l.010
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.009/BackHat.l.010/BackHat.l.011
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.012
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.012/BackHat.l.013
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.012/BackHat.l.013/BackHat.l.014
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.015
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.015/BackHat.l.016
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.015/BackHat.l.016/BackHat.l.017
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.018
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.018/BackHat.l.019
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.018/BackHat.l.019/BackHat.l.020
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.021
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.021/BackHat.l.022
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.l.021/BackHat.l.022/BackHat.l.023
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r/BackHat.r.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r/BackHat.r.001/BackHat.r.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.003/BackHat.r.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.003/BackHat.r.004/BackHat.r.005
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.006
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.006/BackHat.r.007
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.006/BackHat.r.007/BackHat.r.008
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.009
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.009/BackHat.r.010
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.009/BackHat.r.010/BackHat.r.011
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.012
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.012/BackHat.r.013
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.012/BackHat.r.013/BackHat.r.014
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.015
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.015/BackHat.r.016
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.015/BackHat.r.016/BackHat.r.017
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.018
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.018/BackHat.r.019
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.018/BackHat.r.019/BackHat.r.020
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.021
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.021/BackHat.r.022
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/BackHat.r.021/BackHat.r.022/BackHat.r.023
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat/FrontHat.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat/FrontHat.001/FrontHat.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l/FrontHat.l.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l/FrontHat.l.001/FrontHat.l.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.003/FrontHat.l.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.003/FrontHat.l.004/FrontHat.l.005
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.006
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.006/FrontHat.l.007
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.006/FrontHat.l.007/FrontHat.l.008
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.009
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.009/FrontHat.l.010
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.009/FrontHat.l.010/FrontHat.l.011
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.012
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.012/FrontHat.l.013
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.012/FrontHat.l.013/FrontHat.l.014
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.015
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.015/FrontHat.l.016
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.015/FrontHat.l.016/FrontHat.l.017
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.018
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.018/FrontHat.l.019
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.l.018/FrontHat.l.019/FrontHat.l.020
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r/FrontHat.r.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r/FrontHat.r.001/FrontHat.r.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.003
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.003/FrontHat.r.004
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.003/FrontHat.r.004/FrontHat.r.005
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.006
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.006/FrontHat.r.007
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.006/FrontHat.r.007/FrontHat.r.008
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.009
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.009/FrontHat.r.010
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.009/FrontHat.r.010/FrontHat.r.011
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.012
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.012/FrontHat.r.013
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.012/FrontHat.r.013/FrontHat.r.014
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.015
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.015/FrontHat.r.016
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.015/FrontHat.r.016/FrontHat.r.017
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.018
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.018/FrontHat.r.019
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/FrontHat.r.018/FrontHat.r.019/FrontHat.r.020
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.l/SideHat.l.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.l/SideHat.l.001/SideHat.l.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.r/SideHat.r.001
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/head/hat/SideHat.r/SideHat.r.001/SideHat.r.002
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/indexfinger.l.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/indexfinger.l.01/indexfinger.l.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/middlefinger.l.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/middlefinger.l.01/middlefinger.l.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/pinky.l.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/pinky.l.01/pinky.l.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/ringfinger.l.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/ringfinger.l.01/ringfinger.l.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/thumb.l.01
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/thumb.l.01/thumb.l.02
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/weapon.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/weapon.l/shotgunbarrel.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.l/upperarm.l/lowerarm.l/hand.l/weapon.l/weaponhead.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/indexfinger.r.01
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/indexfinger.r.01/indexfinger.r.02
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/middlefinger.r.01
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/middlefinger.r.01/middlefinger.r.02
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/pinky.r.01
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/pinky.r.01/pinky.r.02
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/ringfinger.r.01
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/ringfinger.r.01/ringfinger.r.02
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/thumb.r.01
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/thumb.r.01/thumb.r.02
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/dummy
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.l/HandleIK.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.l/HandleIK.l/HandleIK.l_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.r/HandleIK.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GripIK.r/HandleIK.r/HandleIK.r_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/BottomRailSlider
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/BottomRailSlider/BottomRail
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/BottomRailSlider/BottomRail/BottomRail_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/TopRailSlider
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/TopRailSlider/TopRail
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunEnd/TopRailSlider/TopRail/TopRail_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunScope
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/GunScope/GunScope_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGBarrel
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGBarrel/SMGBarrel_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGScope1
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGScope1/SMGScope1_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGScope2
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/GunBarrel/SMG/SMGScope2/SMGScope2_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/Stock
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/GunRoot/Stock/Stock_end
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/shotgunbarrel.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponhead.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.elbow.l
+    m_Weight: 1
+  - m_Path: Armature/ROOT/ik.elbow.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.foot.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.foot.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.hand.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.hand.r
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.knee.l
+    m_Weight: 0
+  - m_Path: Armature/ROOT/ik.knee.r
+    m_Weight: 0
+  - m_Path: meshArcThrower
+    m_Weight: 0
+  - m_Path: meshArmor
+    m_Weight: 0
+  - m_Path: meshBazooka
+    m_Weight: 0
+  - m_Path: meshBazookaRocket
+    m_Weight: 0
+  - m_Path: meshBody
+    m_Weight: 0
+  - m_Path: meshCape
+    m_Weight: 0
+  - m_Path: meshDeagle
+    m_Weight: 0
+  - m_Path: meshHeavyMachineGun
+    m_Weight: 0
+  - m_Path: meshKatanaHat
+    m_Weight: 0
+  - m_Path: meshKnife
+    m_Weight: 0
+  - m_Path: meshNemKatana
+    m_Weight: 0
+  - m_Path: meshNemmercGun
+    m_Weight: 0
+  - m_Path: meshPistol
+    m_Weight: 0
+  - m_Path: meshRailgun
+    m_Weight: 0
+  - m_Path: meshRevolver
+    m_Weight: 0
+  - m_Path: meshRocketLauncher
+    m_Weight: 0
+  - m_Path: meshSyringe
+    m_Weight: 0

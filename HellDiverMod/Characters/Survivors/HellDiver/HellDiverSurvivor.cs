@@ -2,6 +2,7 @@
 using EntityStates;
 using EntityStates.Engi.Mine;
 using HellDiverMod.General.Components;
+using HellDiverMod.HellDiver.SkillStates;
 using HellDiverMod.Modules;
 using HellDiverMod.Modules.Characters;
 using HellDiverMod.Survivors.HellDiver.Components;
@@ -22,7 +23,7 @@ namespace HellDiverMod.Survivors.HellDiver
     {
         public override string assetBundleName => "helldiverbundle";
 
-        public override string bodyName => "HellDiverBody";
+        public override string bodyName => "DiverBody";
         
         public override string masterName => "HellDiverMonsterMaster";
 
@@ -33,13 +34,16 @@ namespace HellDiverMod.Survivors.HellDiver
 
         public override string survivorTokenPrefix => HELLDIVER_PREFIX;
 
+        internal static GameObject characterPrefab;
+
+
         public override BodyInfo bodyInfo => new BodyInfo
         {
             bodyName = bodyName,
             bodyNameToken = HELLDIVER_PREFIX + "NAME",
             subtitleNameToken = HELLDIVER_PREFIX + "SUBTITLE",
 
-            characterPortrait = assetBundle.LoadAsset<Texture>("texIconGI"),
+            characterPortrait = assetBundle.LoadAsset<Texture>("texDiverIcon"),
             bodyColor = Color.blue,
             sortPosition = 69.6f,
 
@@ -56,7 +60,7 @@ namespace HellDiverMod.Survivors.HellDiver
             jumpCount = 1,
         };
 
-        public override UnlockableDef characterUnlockableDef => null;// GIUnlockables.characterUnlockableDef;
+        public override UnlockableDef characterUnlockableDef => null; // GIUnlockables.characterUnlockableDef;
 
         public override ItemDisplaysBase itemDisplays { get; } = new HellDiverMod.General.JoeItemDisplays();
 
@@ -84,8 +88,8 @@ namespace HellDiverMod.Survivors.HellDiver
 
             //GIConfig.Init();
 
-            //GIStates.Init();
-            //GITokens.Init();
+            HellDiverStates.Init();
+            HellDiverTokens.Init();
 
             HellDiverAssets.Init(assetBundle);
             //GIBuffs.Init(assetBundle);
@@ -97,6 +101,8 @@ namespace HellDiverMod.Survivors.HellDiver
 
             AdditionalBodySetup();
 
+            characterPrefab = bodyPrefab;
+
             AddHooks();
         }
         
@@ -104,6 +110,7 @@ namespace HellDiverMod.Survivors.HellDiver
         {
             //AddHitboxes();
             bodyPrefab.AddComponent<StratagemInputController>();
+            bodyPrefab.AddComponent<HellDiverController>();
         }
 
         public override void InitializeEntityStateMachines() 
@@ -115,7 +122,7 @@ namespace HellDiverMod.Survivors.HellDiver
             //if you set up a custom main characterstate, set it up here
                 //don't forget to register custom entitystates in your HenryStates.cs
             //the main "body" state machine has some special properties
-            Prefabs.AddMainEntityStateMachine(bodyPrefab, "Body", typeof(EntityStates.GenericCharacterMain), typeof(EntityStates.SpawnTeleporterState));
+            Prefabs.AddMainEntityStateMachine(bodyPrefab, "Body", typeof(MainState), typeof(EntityStates.SpawnTeleporterState));
             
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Dive");
@@ -124,9 +131,10 @@ namespace HellDiverMod.Survivors.HellDiver
         #region skills
         public override void InitializeSkills()
         {
-            Skills.ClearGenericSkills(bodyPrefab);
-
+            bodyPrefab.AddComponent<HellDiverPassive>();
             Skills.CreateSkillFamilies(bodyPrefab);
+
+            AddPassiveSkills();
             AddPrimarySkills();
             AddSecondarySkills();
             AddUtiitySkills();
@@ -163,22 +171,57 @@ namespace HellDiverMod.Survivors.HellDiver
                 cancelSprintingOnActivation = true,
                 forceSprintDuringState = false,
             });
-        }
 
+            SkillLocator skillLocator = bodyPrefab.GetComponent<SkillLocator>();
+
+            skillLocator.passiveSkill.enabled = false;
+        }
+        private void AddPassiveSkills()
+        {
+            HellDiverPassive passive = bodyPrefab.GetComponent<HellDiverPassive>();
+
+            passive.HellDiverPassiveSkillDef = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = HELLDIVER_PREFIX + "PASSIVE_NAME",
+                skillNameToken = HELLDIVER_PREFIX + "PASSIVE_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PASSIVE_DESCRIPTION",
+                skillIcon = assetBundle.LoadAsset<Sprite>("texHellDiverPassive"),
+                keywordTokens = new string[] { },
+                activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Idle)),
+                activationStateMachineName = "",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Any,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = false,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 2,
+                stockToConsume = 1
+            });
+
+            Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, passive.HellDiverPassiveSkillDef);
+        }
         private void AddPrimarySkills()
         {
-            SkillDef primarySkillDef1 = Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef pistolDef = Skills.CreateSkillDef(new SkillDefInfo
                 (
-                    "HellDiverGun1",
-                    HELLDIVER_PREFIX + "PRIMARY_GUN_NAME",
-                    HELLDIVER_PREFIX + "PRIMARY_GUN_DESCRIPTION",
+                    "HellDiverPistol",
+                    HELLDIVER_PREFIX + "PRIMARY_PISTOL_NAME",
+                    HELLDIVER_PREFIX + "PRIMARY_PISTOL_DESCRIPTION",
                     assetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                    new EntityStates.SerializableEntityStateType(typeof(EntityStates.Commando.CommandoWeapon.FirePistol2)),
+                    new EntityStates.SerializableEntityStateType(typeof(DiverFirePistol)),
                     "Weapon",
-                    false
+                    true,
+                    true
                 ));
 
-            Skills.AddPrimarySkills(bodyPrefab, primarySkillDef1);
+            Skills.AddPrimarySkills(bodyPrefab, pistolDef);
         }
 
         private void AddSecondarySkills()
@@ -186,9 +229,9 @@ namespace HellDiverMod.Survivors.HellDiver
             //here is a basic skill def with all fields accounted for
             SkillDef secondarySkillDef1 = Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = "HellDiverGrenade1",
-                skillNameToken = HELLDIVER_PREFIX + "SECONDARY_CALTROPS_NAME",
-                skillDescriptionToken = HELLDIVER_PREFIX + "SECONDARY_CALTROPS_DESCRIPTION",
+                skillName = "HellDiverGrenade",
+                skillNameToken = HELLDIVER_PREFIX + "SECONDARY_THROWGRENADE_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "SECONDARY_THROWGRENADE_DESCRIPTION",
                 keywordTokens = new string[] { "KEYWORD_STUNNING" },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 
@@ -225,11 +268,11 @@ namespace HellDiverMod.Survivors.HellDiver
             SkillDefInfo skillDefInfo = new SkillDefInfo
             {
                 skillName = "HellDive",
-                skillNameToken = HELLDIVER_PREFIX + "UTILITY_SLIDE_NAME",
-                skillDescriptionToken = HELLDIVER_PREFIX + "UTILITY_SLIDE_DESCRIPTION",
+                skillNameToken = HELLDIVER_PREFIX + "UTILITY_DIVE_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "UTILITY_DIVE_DESCRIPTION",
                 skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
-                activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Commando.DodgeState)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(Dive)),
                 activationStateMachineName = "Dive",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
@@ -261,8 +304,8 @@ namespace HellDiverMod.Survivors.HellDiver
             StratagemComponentSkillDef specialSkillDef1 = Skills.CreateSkillDef<StratagemComponentSkillDef>(new SkillDefInfo
             {
                 skillName = "HellDiverStratagem",
-                skillNameToken = HELLDIVER_PREFIX + "SPECIAL_DEPLOY_NAME",
-                skillDescriptionToken = HELLDIVER_PREFIX + "SPECIAL_DEPLOY_DESCRIPTION",
+                skillNameToken = HELLDIVER_PREFIX + "SPECIAL_STRATEGEM_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "SPECIAL_STRATEGEM_DESCRIPTION",
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSpecialIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(InputStratagem)),

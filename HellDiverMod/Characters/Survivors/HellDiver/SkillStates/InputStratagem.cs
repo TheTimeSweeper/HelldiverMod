@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using HellDiverMod.General.SkillDefs;
+using HellDiverMod.Modules.BaseStates;
 using HellDiverMod.Survivors.HellDiver.Components;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 namespace HellDiverMod.Survivors.HellDiver.SkillStates
 {
 
-    public class InputStratagem : BaseSkillState, IHasSkillDefComponent<StratagemInputController>
+    public class InputStratagem : BaseHellDiverSkillState, IHasSkillDefComponent<StratagemInputController>
     {
         public StratagemInputController componentFromSkillDef1 { get; set; }
 
@@ -51,22 +52,22 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
         public bool GetStratagemInput(out StratagemInput input)
         {
-            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.UpArrow))
+            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.UpArrow) || inputBank.skill1.down)
             {
                 input = StratagemInput.UP;
                 return true;
             }
-            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.DownArrow))
+            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.DownArrow) || inputBank.skill2.down)
             {
                 input = StratagemInput.DOWN;
                 return true;
             }
-            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.RightArrow))
+            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.RightArrow) || inputBank.skill3.down)
             {
                 input = StratagemInput.RIGHT;
                 return true;
             }
-            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.LeftArrow))
+            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.LeftArrow) || inputBank.skill4.down)
             {
                 input = StratagemInput.LEFT;
                 return true;

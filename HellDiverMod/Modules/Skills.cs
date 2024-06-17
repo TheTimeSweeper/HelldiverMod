@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using HellDiverMod;
 using UnityEngine;
+using HellDiverMod.Survivors.HellDiver.Components;
 
 namespace HellDiverMod.Modules
 {
@@ -16,17 +17,30 @@ namespace HellDiverMod.Modules
         /// </summary>
         /// <param name="targetPrefab">Body prefab to add GenericSkills</param>
         /// <param name="destroyExisting">Destroy any existing GenericSkills on the body prefab so you can replace them?</param>
-        public static void CreateSkillFamilies(GameObject targetPrefab) => CreateSkillFamilies(targetPrefab, SkillSlot.Primary, SkillSlot.Secondary, SkillSlot.Utility, SkillSlot.Special);
+        public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting = true) => CreateSkillFamilies(targetPrefab, destroyExisting, SkillSlot.Primary, SkillSlot.Secondary, SkillSlot.Utility, SkillSlot.Special);
         /// <summary>
         /// Create in order the GenericSkills for the skillslots desired, and create skillfamilies for them.
         /// </summary>
         /// <param name="targetPrefab">Body prefab to add GenericSkills</param>
         /// <param name="destroyExisting">Destroy any existing GenericSkills on the body prefab so you can replace them?</param>
         /// <param name="slots">Order of slots to add to the body prefab. <para>Input SkillSlot.None to create a GenericSkill on the prefab outside of usual 4. These will be called GenericSkill1, with the number being its order on the loadout screen</para><para>For example, mul-t's selectable second primary, a selectable passive like acrid, etc</para></param>
-        public static void CreateSkillFamilies(GameObject targetPrefab, params SkillSlot[] slots)
+        public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting, params SkillSlot[] slots)
         {
+            if (destroyExisting)
+            {
+                foreach (GenericSkill obj in targetPrefab.GetComponentsInChildren<GenericSkill>())
+                {
+                    UnityEngine.Object.DestroyImmediate(obj);
+                }
+            }
+
             SkillLocator skillLocator = targetPrefab.GetComponent<SkillLocator>();
 
+            HellDiverPassive passive = targetPrefab.GetComponent<HellDiverPassive>();
+            if (passive)
+            {
+                passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+            }
             for (int i = 0; i < slots.Length; i++)
             {
                 switch (slots[i])
@@ -126,7 +140,10 @@ namespace HellDiverMod.Modules
         {
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
         }
-
+        public static void AddPassiveSkills(SkillFamily passiveSkillFamily, params SkillDef[] skillDefs)
+        {
+            AddSkillsToFamily(passiveSkillFamily, skillDefs);
+        }
         /// <summary>
         /// pass in an amount of unlockables equal to or less than skill variants, null for skills that aren't locked
         /// <code>
@@ -243,7 +260,8 @@ namespace HellDiverMod.Modules
 
                             SerializableEntityStateType activationState,
                             string activationStateMachineName = "Weapon",
-                            bool agile = false)
+                            bool agile = false,
+                            bool semiAuto = false)
         {
             this.skillName = skillName;
             this.skillNameToken = skillNameToken;
@@ -254,6 +272,7 @@ namespace HellDiverMod.Modules
             this.activationStateMachineName = activationStateMachineName;
 
             this.cancelSprintingOnActivation = !agile;
+            this.canceledFromSprinting = !agile;
 
             if (agile) this.keywordTokens = new string[] { "KEYWORD_AGILE" };
 
@@ -263,6 +282,8 @@ namespace HellDiverMod.Modules
 
             this.requiredStock = 0;
             this.stockToConsume = 0;
+
+            this.mustKeyPress = semiAuto;
 
         }
         #endregion construction complete

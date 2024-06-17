@@ -1,20 +1,24 @@
 ﻿using EntityStates;
+using R2API;
 using RoR2;
 using RoR2.Audio;
 using RoR2.Skills;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using static EntityStates.BaseState;
 
 
 namespace HellDiverMod.Modules.BaseStates
 {
-    public abstract class BaseMeleeAttack : BaseSkillState, SteppedSkillDef.IStepSetter
+    public abstract class BaseMeleeAttack : BaseHellDiverSkillState, SteppedSkillDef.IStepSetter
     {
         public int swingIndex;
 
         protected string hitboxGroupName = "SwordGroup";
 
         protected DamageType damageType = DamageType.Generic;
+        protected List<DamageAPI.ModdedDamageType> moddedDamageTypeHolder = new List<DamageAPI.ModdedDamageType>();
         protected float damageCoefficient = 3.5f;
         protected float procCoefficient = 1f;
         protected float pushForce = 300f;
@@ -33,15 +37,15 @@ namespace HellDiverMod.Modules.BaseStates
         protected string swingSoundString = "";
         protected string hitSoundString = "";
         protected string muzzleString = "SwingCenter";
-        protected string playbackRateParam = "Slash.playbackRate";
+        protected string playbackRateParam = "Swing.playbackRate";
         protected GameObject swingEffectPrefab;
         protected GameObject hitEffectPrefab;
-        protected NetworkSoundEventIndex impactSound;
+        protected NetworkSoundEventIndex impactSound = NetworkSoundEventIndex.Invalid;
 
         public float duration;
         private bool hasFired;
         private float hitPauseTimer;
-        protected OverlapAttack attack;
+        private OverlapAttack attack;
         protected bool inHitPause;
         private bool hasHopped;
         protected float stopwatch;
@@ -60,9 +64,15 @@ namespace HellDiverMod.Modules.BaseStates
 
             attack = new OverlapAttack();
             attack.damageType = damageType;
-            attack.attacker = gameObject;
-            attack.inflictor = gameObject;
-            attack.teamIndex = GetTeam();
+            foreach (DamageAPI.ModdedDamageType i in moddedDamageTypeHolder)
+            {
+                this.attack.AddModdedDamageType(i);
+            }
+            moddedDamageTypeHolder.Clear();
+            attack.damageColorIndex = DamageColorIndex.Default;
+            attack.attacker = this.gameObject;
+            attack.inflictor = this.gameObject;
+            attack.teamIndex = TeamIndex.None;
             attack.damage = damageCoefficient * damageStat;
             attack.procCoefficient = procCoefficient;
             attack.hitEffectPrefab = hitEffectPrefab;
@@ -71,12 +81,6 @@ namespace HellDiverMod.Modules.BaseStates
             attack.hitBoxGroup = FindHitBoxGroup(hitboxGroupName);
             attack.isCrit = RollCrit();
             attack.impactSound = impactSound;
-
-            //if (General.GeneralCompat.IsLocalVRPlayer(base.characterBody))
-            //{
-            //    attackEndPercentTime -= attackStartPercentTime * 0.5f;
-            //    attackStartPercentTime = 0;
-            //}
         }
 
         protected virtual void PlayAttackAnimation()
@@ -126,7 +130,7 @@ namespace HellDiverMod.Modules.BaseStates
             }
         }
 
-        protected virtual void FireAttackUpdate()
+        protected virtual void FireAttack()
         {
             if (isAuthority)
             {
@@ -137,7 +141,7 @@ namespace HellDiverMod.Modules.BaseStates
             }
         }
 
-        protected virtual void FireAttackEnter()
+        private void EnterAttack()
         {
             hasFired = true;
             Util.PlayAttackSpeedSound(swingSoundString, gameObject, attackSpeedStat);
@@ -179,9 +183,9 @@ namespace HellDiverMod.Modules.BaseStates
             {
                 if (!hasFired)
                 {
-                    FireAttackEnter();
+                    EnterAttack();
                 }
-                FireAttackUpdate();
+                FireAttack();
             }
 
             if (stopwatch >= duration && isAuthority)

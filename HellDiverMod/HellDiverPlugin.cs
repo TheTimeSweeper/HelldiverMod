@@ -19,7 +19,7 @@ namespace HellDiverMod
         public const string MODNAME = "Helldiver";
         public const string MODVERSION = "1.0.0";
 
-        public const string DEVELOPER_PREFIX = "LIBERTEA";
+        public const string DEVELOPER_PREFIX = "LIBERTEAM";
 
         public static HellDiverPlugin instance;
         
