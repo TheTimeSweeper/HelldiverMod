@@ -20,6 +20,8 @@ namespace HellDiverMod.Survivors.HellDiver
             //Secondary
             Modules.Content.AddEntityState(typeof(Dive));
 
+            //Strategem
+            Modules.Content.AddEntityState(typeof(StrategemM1Slot));
         }
     }
 }

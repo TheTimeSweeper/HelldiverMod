@@ -32,6 +32,11 @@ namespace HellDiverMod.Survivors.HellDiver
 
         public const string HELLDIVER_PREFIX = HellDiverPlugin.DEVELOPER_PREFIX + "_HELLDIVER_";
 
+        public static SkillDef strategemSkillDef1;
+        public static SkillDef strategemSkillDef2;
+        public static SkillDef strategemSkillDef3;
+        public static SkillDef strategemSkillDef4;
+
         public override string survivorTokenPrefix => HELLDIVER_PREFIX;
 
         internal static GameObject characterPrefab;
@@ -171,6 +176,112 @@ namespace HellDiverMod.Survivors.HellDiver
                 cancelSprintingOnActivation = true,
                 forceSprintDuringState = false,
             });
+
+            strategemSkillDef1 = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Strategem1",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM1_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM1_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StrategemM1Slot)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = InterruptPriority.PrioritySkill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = false,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0
+            });
+
+            strategemSkillDef2 = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Strategem2",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM2_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM2_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StrategemM1Slot)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = InterruptPriority.PrioritySkill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = false,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0
+            });
+
+            strategemSkillDef3 = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Strategem3",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM3_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM3_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StrategemM1Slot)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = InterruptPriority.PrioritySkill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = false,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0
+            });
+
+            strategemSkillDef4 = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "Strategem4",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM4_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_STRATEGEM4_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texConvictScepter"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StrategemM1Slot)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = InterruptPriority.PrioritySkill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = false,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 0
+            });
+
+
 
             SkillLocator skillLocator = bodyPrefab.GetComponent<SkillLocator>();
 
@@ -577,8 +688,35 @@ namespace HellDiverMod.Survivors.HellDiver
         private void AddHooks()
         {
             On.RoR2.UI.HUD.Awake += HUD_Awake;
+            On.RoR2.Stage.RespawnCharacter += Stage_RespawnCharacter;
         }
 
+        private void Stage_RespawnCharacter(On.RoR2.Stage.orig_RespawnCharacter orig, Stage self, CharacterMaster characterMaster)
+        {
+            bool firstStage = false;
+            if(self.usePod == true) firstStage = true;
+            if(characterMaster && characterMaster.bodyPrefab == HellDiverSurvivor.characterPrefab && !firstStage)
+            {
+                Transform playerSpawnTransform = self.GetPlayerSpawnTransform();
+                Vector3 vector = Vector3.zero;
+                Quaternion quaternion = Quaternion.identity;
+                if (playerSpawnTransform)
+                {
+                    vector = playerSpawnTransform.position;
+                    quaternion = playerSpawnTransform.rotation;
+                }
+                characterMaster.Respawn(vector, quaternion);
+                if (characterMaster.GetComponent<PlayerCharacterMasterController>())
+                {
+                    self.spawnedAnyPlayer = true;
+                }
+                Run.instance.HandlePlayerFirstEntryAnimation(characterMaster.GetBody(), vector, quaternion);
+            }
+            else
+            {
+                orig.Invoke(self, characterMaster);
+            }
+        }
         private void HUD_Awake(On.RoR2.UI.HUD.orig_Awake orig, RoR2.UI.HUD self)
         {
             orig(self);
