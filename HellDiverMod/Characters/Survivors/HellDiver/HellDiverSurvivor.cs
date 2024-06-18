@@ -332,7 +332,43 @@ namespace HellDiverMod.Survivors.HellDiver
                     true
                 ));
 
-            Skills.AddPrimarySkills(bodyPrefab, pistolDef);
+            ReloadSkillDef arSkillDef = Skills.CreateReloadSkillDef(new ReloadSkillDefInfo
+            {
+                skillName = "HellDiverAR",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_ASSAULT_RIFLE_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_ASSAULT_RIFLE_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(DiverFireAR)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+
+                baseRechargeInterval = 0f,
+                baseMaxStock = 30,
+
+                rechargeStock = 0,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = false,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = true,
+                forceSprintDuringState = false,
+
+                graceDuration = 1.5f,
+                reloadState = new EntityStates.SerializableEntityStateType(typeof(EnterReload)),
+                reloadInterruptPriority = InterruptPriority.Any,
+
+            });
+
+            Skills.AddPrimarySkills(bodyPrefab, pistolDef, arSkillDef);
         }
 
         private void AddSecondarySkills()

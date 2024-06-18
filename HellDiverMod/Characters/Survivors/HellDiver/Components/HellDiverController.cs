@@ -7,5 +7,6 @@ namespace HellDiverMod.Survivors.HellDiver.Components
 {
     public class HellDiverController : MonoBehaviour
     {
+        public float stageReload = 0;
     }
 }

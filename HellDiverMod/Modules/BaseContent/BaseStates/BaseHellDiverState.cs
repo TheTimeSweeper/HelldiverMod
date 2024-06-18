@@ -10,22 +10,23 @@ namespace HellDiverMod.Modules.BaseStates
 {
     public abstract class BaseHellDiverState : BaseState
     {
-        protected HellDiverController HellDiverController;
+        protected HellDiverController hellDiverController;
 
         public override void OnEnter()
         {
+            RefreshState();
             base.OnEnter();
         }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            RefreshState();
+            
         }
         protected void RefreshState()
         {
-            if (!HellDiverController)
+            if (!hellDiverController)
             {
-                HellDiverController = base.GetComponent<HellDiverController>();
+                hellDiverController = base.GetComponent<HellDiverController>();
             }
         }
     }
