@@ -4,6 +4,9 @@ using RoR2.Projectile;
 using RoR2.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using RoR2;
+using UnityEngine.AI;
+using UnityEngine.Networking;
 
 namespace HellDiverMod.Survivors.HellDiver
 {
@@ -36,6 +39,43 @@ namespace HellDiverMod.Survivors.HellDiver
             entryComponent.skillIcon = skillRoot.GetComponent<SkillIcon>();
             hellDiverUI.GetComponent<HellDiverUI>().entryPrefab = entryComponent;
         }
-    }
 
+        private static void CleanChildren(Transform startingTrans)
+        {
+            for (int num = startingTrans.childCount - 1; num >= 0; num--)
+            {
+                if (startingTrans.GetChild(num).childCount > 0)
+                {
+                    CleanChildren(startingTrans.GetChild(num));
+                }
+                Object.DestroyImmediate(startingTrans.GetChild(num).gameObject);
+            }
+        }
+
+        private static void CreateMaterials()
+        {
+        }
+
+        private static void CreateModels()
+        {
+        }
+        #region effects
+        private static void CreateEffects()
+        {
+        }
+
+        #endregion
+
+        #region projectiles
+        private static void CreateProjectiles()
+        {
+        }
+        #endregion
+
+        #region sounds
+        private static void CreateSounds()
+        {
+        }
+        #endregion
+    }
 }

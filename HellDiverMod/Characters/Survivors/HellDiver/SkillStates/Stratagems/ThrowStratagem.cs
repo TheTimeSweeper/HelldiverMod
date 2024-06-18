@@ -22,7 +22,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             stratagemInputController.QueueStratagem();
             stratagemInputController.Reset();
 
-            if (isAuthority)
+            if (base.isAuthority)
             {
                 FireStratagemProjectile();
             }
