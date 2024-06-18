@@ -61,7 +61,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         {
             if (base.GetModelAnimator())
             {
-                base.PlayAnimation("Gesture, Override", "ThrowKnife", "Throw.playbackRate", this.duration * 5.5f);
+                base.PlayAnimation("Gesture, Override", "ThrowGrenade", "Throw.playbackRate", this.duration * 2.5f);
             }
         }
     }

@@ -27,40 +27,28 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             else this.hellDiverController.stageReload = this.duration;
             this.startReload = 0.04f * duration;
             this.magInserted = 0.6f * duration;
-            // dontPlay goes here
-            base.PlayCrossfade("","", this.duration); // DO THIS LATER
-            // Util.PlayAttackSpeedSound("", base.gameObject, 1);
+            base.PlayCrossfade("Gesture, Override", "ReloadAR", this.duration); // DO THIS LATER
         }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            
-            if (dontPlay && base.isAuthority)
-            {
-                Log.Debug("dontplay");
-                this.outer.SetNextStateToMain();
-                return;
-            }
-            
+           
             if(base.fixedAge >= startReload && !StartReloadPlayed)
             {
                 this.hellDiverController.stageReload = duration - startReload;
                 StartReloadPlayed = true;
-                // Util.PlayAttackSpeedSound("", base.gameObject, 1);
+                Util.PlayAttackSpeedSound("Play_bandit2_m1_reload_bullet", base.gameObject, attackSpeedStat);
             }
 
-            if(base.fixedAge >= magInserted && !magInsertedPlayed)
+            if (base.fixedAge >= magInserted && !magInsertedPlayed)
             {
                 this.hellDiverController.stageReload = duration - magInserted;
                 magInsertedPlayed = true;
-                // Util.PlayAttackSpeedSound("", base.gameObject, 1);
-                
+                Util.PlayAttackSpeedSound("Play_bandit2_m1_reload_finish", base.gameObject, attackSpeedStat);
             }
 
             if (base.isAuthority && base.fixedAge >= this.duration)
             {
-                Log.Debug("next state to main");
-                // Util.PlayAttackSpeedSound("", base.gameObject, 1);
                 GiveStock();
                 this.hellDiverController.stageReload = 0f;
                 this.outer.SetNextStateToMain();

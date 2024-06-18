@@ -12,7 +12,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 {
     public class DiverFireAR : BaseHellDiverSkillState
     {
-        public static float damageCoefficient = 3f;
+        public static float damageCoefficient = 1.5f;
         public static float procCoefficient = 0.7f;
         public static float baseDuration = 0.1f;
         public static float force = 200f;
@@ -39,13 +39,13 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
             this.fireTime = 0.1f * this.duration;
             base.characterBody.SetAimTimer(2f);
-            this.muzzleString = "PistolMuzzle";
+            this.muzzleString = "GunMuzzle";
 
             this.isCrit = base.RollCrit();
 
             this.hasFired = true;
             this.Fire();
-            this.PlayAnimation("Gesture, Override", "ShootPistol", "Shoot.playbackRate", this.duration * 2.5f);
+            this.PlayAnimation("Gesture, Override", "ShootAR", "Shoot.playbackRate", this.duration * 2.5f);
         }
 
         public override void OnExit()

@@ -24,6 +24,7 @@ namespace HellDiverMod.Survivors.HellDiver
             Modules.Content.AddEntityState(typeof(KnifeThrow));
 
             // Utility
+            Modules.Content.AddEntityState(typeof(StartDive));
             Modules.Content.AddEntityState(typeof(Dive));
 
             //Strategem

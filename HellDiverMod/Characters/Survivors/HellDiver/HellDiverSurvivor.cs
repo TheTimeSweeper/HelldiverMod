@@ -130,6 +130,7 @@ namespace HellDiverMod.Survivors.HellDiver
             Prefabs.AddMainEntityStateMachine(bodyPrefab, "Body", typeof(MainState), typeof(EntityStates.SpawnTeleporterState));
             
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon2");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Dive");
         }
 
@@ -383,7 +384,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Commando.CommandoWeapon.ThrowGrenade)),
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Weapon2",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
                 baseRechargeInterval = 5f,
@@ -414,7 +415,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(KnifeThrow)),
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Weapon2",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
                 baseRechargeInterval = 5f,
@@ -450,7 +451,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 skillDescriptionToken = HELLDIVER_PREFIX + "UTILITY_DIVE_DESCRIPTION",
                 skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
-                activationState = new EntityStates.SerializableEntityStateType(typeof(Dive)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StartDive)),
                 activationStateMachineName = "Dive",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 

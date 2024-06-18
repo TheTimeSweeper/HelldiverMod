@@ -22,7 +22,6 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             base.FixedUpdate();
             if (base.isAuthority && base.fixedAge >= duration)
             {
-                Log.Debug("relaoding!!!!");
                 outer.SetNextState(new Reload());
             }
         }
