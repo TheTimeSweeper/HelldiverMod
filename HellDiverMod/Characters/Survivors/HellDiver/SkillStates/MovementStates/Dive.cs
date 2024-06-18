@@ -10,6 +10,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
         public override void OnEnter()
         {
+            
             base.OnEnter();
         }
 

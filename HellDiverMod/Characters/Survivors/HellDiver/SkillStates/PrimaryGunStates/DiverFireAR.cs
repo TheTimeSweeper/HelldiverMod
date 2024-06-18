@@ -12,11 +12,11 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 {
     public class DiverFireAR : BaseHellDiverSkillState
     {
-        public static float damageCoefficient = 1.5f;
+        public static float damageCoefficient = 1.25f;
         public static float procCoefficient = 0.7f;
         public static float baseDuration = 0.1f;
         public static float force = 200f;
-        public static float recoil = 2f;
+        public static float recoil = 0.5f;
         public static float range = 2000f;
         public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
         public static GameObject critTracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerCaptainShotgun");
@@ -45,6 +45,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
             this.hasFired = true;
             this.Fire();
+
             this.PlayAnimation("Gesture, Override", "ShootAR", "Shoot.playbackRate", this.duration * 2.5f);
         }
 
@@ -60,7 +61,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             if (base.isAuthority)
             {
                 Ray aimRay = base.GetAimRay();
-                base.AddRecoil2(-1f * DiverFireAR.recoil, -2f * DiverFireAR.recoil, -0.5f * DiverFireAR.recoil, 0.5f * DiverFireAR.recoil);
+                base.AddRecoil2(-1f * DiverFireAR.recoil, -1f * DiverFireAR.recoil, -0.5f * DiverFireAR.recoil, 0.5f * DiverFireAR.recoil);
 
                 BulletAttack bulletAttack = new BulletAttack
                 {
@@ -75,7 +76,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
                     force = DiverFireAR.force,
                     hitMask = LayerIndex.CommonMasks.bullet,
                     minSpread = 0f,
-                    maxSpread = this.characterBody.spreadBloomAngle * 2f,
+                    maxSpread = this.characterBody.spreadBloomAngle * 1.5f,
                     isCrit = this.isCrit,
                     owner = base.gameObject,
                     muzzleName = muzzleString,

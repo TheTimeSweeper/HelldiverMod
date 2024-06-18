@@ -64,7 +64,74 @@ namespace HellDiverMod.Survivors.HellDiver
 
             jumpCount = 1,
         };
+        public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]
+{
+                new CustomRendererInfo
+                {
+                    childName = "Model",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArcThrowerModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArmorModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "BazookaModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "BodyModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "CapeModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "DeagleModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "HeavyMGModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "JapaneseBloodFlowsThroughMyVeinsHatModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "KatanaModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ShotgunModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "PistolModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RailgunModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RevolverModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RocketLauncherModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "SyringeModel",
+                },
 
+};
         public override UnlockableDef characterUnlockableDef => null; // GIUnlockables.characterUnlockableDef;
 
         public override ItemDisplaysBase itemDisplays { get; } = new HellDiverMod.General.JoeItemDisplays();
@@ -778,7 +845,6 @@ namespace HellDiverMod.Survivors.HellDiver
                 {
                     self.spawnedAnyPlayer = true;
                 }
-                characterMaster.GetBody().modelLocator.modelBaseTransform.GetComponent<CharacterModel>().invisibilityCount++;
                 Run.instance.HandlePlayerFirstEntryAnimation(characterMaster.GetBody(), vector, quaternion);
             }
             else
