@@ -394,7 +394,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 stockToConsume = 1,
 
                 resetCooldownTimerOnUse = false,
-                fullRestockOnAssign = false,
+                fullRestockOnAssign = true,
                 dontAllowPastMaxStocks = false,
                 mustKeyPress = false,
                 beginSkillCooldownOnSkillEnd = false,
@@ -405,8 +405,39 @@ namespace HellDiverMod.Survivors.HellDiver
                 forceSprintDuringState = false,
 
             });
+            SkillDef knifeDef = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "HellDiverKnifeThrow",
+                skillNameToken = HELLDIVER_PREFIX + "SECONDARY_KNIFETHROW_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "SECONDARY_KNIFETHROW_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
-            Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1);
+                activationState = new EntityStates.SerializableEntityStateType(typeof(KnifeThrow)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+
+                baseRechargeInterval = 5f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = false,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+
+            });
+
+            Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1, knifeDef);
         }
 
         private void AddUtiitySkills()
