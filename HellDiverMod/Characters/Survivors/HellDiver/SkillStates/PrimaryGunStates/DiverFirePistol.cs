@@ -22,8 +22,6 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         public static GameObject critTracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerCaptainShotgun");
 
         private float duration;
-        private float fireTime;
-        private bool hasFired;
         private string muzzleString;
         private bool isCrit;
 
@@ -36,14 +34,10 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         {
             base.OnEnter();
             this.duration = DiverFirePistol.baseDuration / this.attackSpeedStat;
-
-            this.fireTime = 0.1f * this.duration;
             base.characterBody.SetAimTimer(2f);
             this.muzzleString = "PistolMuzzle";
 
             this.isCrit = base.RollCrit();
-
-            this.hasFired = true;
             this.Fire();
             this.PlayAnimation("Gesture, Override", "ShootPistol", "Shoot.playbackRate", this.duration * 2.5f);
         }
@@ -101,15 +95,6 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (base.fixedAge >= this.fireTime && base.isAuthority)
-            {
-                if (!this.hasFired)
-                {
-                    this.hasFired = true;
-                    this.Fire();
-                }
-            }
 
             if (base.fixedAge >= this.duration && base.isAuthority)
             {
