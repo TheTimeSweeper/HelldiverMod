@@ -19,6 +19,8 @@ namespace HellDiverMod.Survivors.HellDiver
             //Primary
             Modules.Content.AddEntityState(typeof(DiverFirePistol));
             Modules.Content.AddEntityState(typeof(DiverFireAR));
+            Modules.Content.AddEntityState(typeof(DiverFireShotgun));
+            Modules.Content.AddEntityState(typeof(DiverFireRevolver));
 
             //Secondary
             Modules.Content.AddEntityState(typeof(KnifeThrow));
