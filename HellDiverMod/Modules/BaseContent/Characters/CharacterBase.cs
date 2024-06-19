@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using HellDiverMod.Survivors.HellDiver;
+using RoR2;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,7 +55,7 @@ namespace HellDiverMod.Modules.Characters
 
                 Log.CurrentTime($"{bodyName} assetbundle loaded");
                 assetBundle = loadedAssetBundle;
-
+                HellDiverAssets.Init(assetBundle);
                 ContentPacks.asyncLoadCoroutines.Add(LoadAssetsBeforeCharacterCreation());
                 ContentPacks.asyncLoadCoroutines.Add(_bodyInfo.FinalizeBodyInfoAsync(assetBundle));
                 if(_bodyInfo.asyncLoads != null)

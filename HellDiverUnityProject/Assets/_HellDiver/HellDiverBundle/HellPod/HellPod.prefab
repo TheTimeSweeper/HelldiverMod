@@ -106,8 +106,8 @@ MonoBehaviour:
         m_CallState: 2
   enterVehicleContextString: 
   exitVehicleContextString: 
-  disablePassengerMotor: 1
-  isEquipmentActivationAllowed: 0
+  disablePassengerMotor: 0
+  isEquipmentActivationAllowed: 1
 --- !u!114 &1048243641366342516
 MonoBehaviour:
   m_ObjectHideFlags: 0

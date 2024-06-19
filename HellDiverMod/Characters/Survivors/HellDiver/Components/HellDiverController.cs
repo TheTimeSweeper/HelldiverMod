@@ -18,7 +18,7 @@ namespace HellDiverMod.Survivors.HellDiver.Components
         private SkillLocator skillLocator;
 
         private string primaryGunString;
-        private string primaryGunAnimation;
+        private string currentGunAnim;
 
         public float stageReload = 0;
 
@@ -41,20 +41,18 @@ namespace HellDiverMod.Survivors.HellDiver.Components
         }
         public void InitialGunString()
         {
-            this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body"), 0f);
             if (HellDiverSurvivor.HELLDIVER_PREFIX + "PRIMARY_PISTOL_NAME" == skillLocator.primary.skillNameToken)
             {
                 this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body"), 1f);
                 this.childLocator.FindChild("PistolModel").gameObject.SetActive(true);
                 primaryGunString = "PistolModel";
-                primaryGunAnimation = "Body";
             }
             else if(HellDiverSurvivor.HELLDIVER_PREFIX + "PRIMARY_ASSAULT_RIFLE_NAME" == skillLocator.primary.skillNameToken)
             {
                 this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body, AR"), 1f);
                 this.childLocator.FindChild("ARModel").gameObject.SetActive(true);
                 primaryGunString = "ARModel";
-                primaryGunAnimation = "Body, AR";
+                currentGunAnim = "Body, AR";
             }
         }
 
@@ -62,8 +60,9 @@ namespace HellDiverMod.Survivors.HellDiver.Components
         {
             if(primaryGunString != gunString) 
             {
-                this.animator.SetLayerWeight(this.animator.GetLayerIndex(primaryGunAnimation), 0f);
+                this.animator.SetLayerWeight(this.animator.GetLayerIndex(currentGunAnim), 0f);
                 this.animator.SetLayerWeight(this.animator.GetLayerIndex(gunAnimString), 1f);
+                currentGunAnim = gunAnimString;
                 this.childLocator.FindChild(primaryGunString).gameObject.SetActive(false);
                 this.childLocator.FindChild(gunString).gameObject.SetActive(true);
             }
