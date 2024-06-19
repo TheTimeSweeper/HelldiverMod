@@ -17,9 +17,6 @@ namespace HellDiverMod.Survivors.HellDiver.Components.UI
 
         internal void Init(StratagemInputSequence sequence)
         {
-            Log.Warning("init");
-            Log.WarningNull("skillicon", skillIcon);
-            Log.WarningNull("sequence", sequence);
             skillIcon.targetSkill = sequence.stratagemGenericSkill;
 
             for (int i = 0; i < inputs.Length; i++)

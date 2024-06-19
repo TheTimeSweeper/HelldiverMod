@@ -54,7 +54,7 @@ namespace HellDiverMod.Survivors.HellDiver
 
             //crosshairBundlePath = "GICrosshair",
             crosshairAddressablePath = "RoR2/Base/UI/StandardCrosshair.prefab",
-            podPrefabBundlePath = "HellPod",
+            podPrefab = HellDiverAssets.hellDiverPodPrefab,
 
             maxHealth = 60f,
             healthGrowth = 60f * 0.15f,
@@ -65,12 +65,8 @@ namespace HellDiverMod.Survivors.HellDiver
             jumpCount = 1,
         };
         public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]
-{
-                new CustomRendererInfo
-                {
-                    childName = "Model",
-                },
-                new CustomRendererInfo
+
+{               new CustomRendererInfo
                 {
                     childName = "ArcThrowerModel",
                 },
@@ -101,6 +97,10 @@ namespace HellDiverMod.Survivors.HellDiver
                 new CustomRendererInfo
                 {
                     childName = "JapaneseBloodFlowsThroughMyVeinsHatModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "KnifeModel",
                 },
                 new CustomRendererInfo
                 {
@@ -163,7 +163,6 @@ namespace HellDiverMod.Survivors.HellDiver
             HellDiverStates.Init();
             HellDiverTokens.Init();
 
-            HellDiverAssets.Init(assetBundle);
             //GIBuffs.Init(assetBundle);
 
             InitializeEntityStateMachines();

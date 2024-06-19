@@ -62,9 +62,8 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
                 base.characterMotor.Motor.ForceUnground();
                 base.characterMotor.velocity = vector + vector2 + vector3;
             }
-            base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
             GetModelTransform().GetComponent<AimAnimator>().enabled = true;
-            PlayCrossfade("FullBody, Override", "Dive", 0.1f);
+            PlayCrossfade("Body", "Dive", 0.1f);
             Util.PlaySound(leapSoundString, base.gameObject);
             base.characterDirection.moveVector = direction;
             if (base.isAuthority)
@@ -110,10 +109,8 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             {
                 base.characterMotor.onMovementHit -= OnMovementHit;
             }
-            base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
             base.characterMotor.airControl = previousAirControl;
             base.characterBody.isSprinting = false;
-            PlayAnimation("FullBody, Override", "DiveIdle");
             base.OnExit();
         }
 

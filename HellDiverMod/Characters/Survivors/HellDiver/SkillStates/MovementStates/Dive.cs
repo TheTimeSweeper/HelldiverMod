@@ -10,16 +10,15 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
         public override void OnEnter()
         {
-            
             base.OnEnter();
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if(base.isAuthority && inputBank.skill4.justReleased)
+            if(base.isAuthority && inputBank.skill3.justPressed || characterBody.isSprinting)
             {
-                PlayCrossfade("FullBody, Override", "BufferEmpty", 0.1f);
+                PlayCrossfade("Body", "DiveToStanding", "Dash.playbackRate", 0.5f, 0.01f);
                 outer.SetNextStateToMain();
             }
         }

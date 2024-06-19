@@ -7,6 +7,8 @@ using UnityEngine.AddressableAssets;
 using RoR2;
 using UnityEngine.AI;
 using UnityEngine.Networking;
+using Unity.Audio;
+using HellDiverMod.Survivors.HellDiver.SkillStates;
 
 namespace HellDiverMod.Survivors.HellDiver
 {
@@ -14,12 +16,15 @@ namespace HellDiverMod.Survivors.HellDiver
     {
         public static GameObject stratagemProjectile;
         public static GameObject hellDiverUI;
-        internal static GameObject knifePrefab;
-
+        public static GameObject hellDiverPodPrefab;
+        public static GameObject knifePrefab;
+        public static AssetBundle assetBundle;
         public static void Init(AssetBundle bundle)
         {
-            stratagemProjectile = bundle.LoadAsset<GameObject>("StratagemProjectile");
-            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoGrenadeGhost.prefab").WaitForCompletion();
+            assetBundle = bundle;
+
+            CreateModels();
+            CreateProjectiles();
 
             hellDiverUI = bundle.LoadAsset<GameObject>("HellDiverUI");
 
@@ -40,7 +45,7 @@ namespace HellDiverMod.Survivors.HellDiver
             entryComponent.skillIcon = skillRoot.GetComponent<SkillIcon>();
             hellDiverUI.GetComponent<HellDiverUI>().entryPrefab = entryComponent;
 
-            CreateProjectiles();
+
         }
 
         private static void CleanChildren(Transform startingTrans)
@@ -61,6 +66,14 @@ namespace HellDiverMod.Survivors.HellDiver
 
         private static void CreateModels()
         {
+            hellDiverPodPrefab = assetBundle.LoadAsset<GameObject>("HellPod");
+            if (!hellDiverPodPrefab.GetComponent<NetworkIdentity>()) hellDiverPodPrefab.AddComponent<NetworkIdentity>();
+            GameObject pod = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/SurvivorPod/SurvivorPod.prefab").WaitForCompletion().InstantiateClone("HellDiverTempPod");
+            GameObject flames = pod.transform.Find("Base").Find("mdlEscapePod").Find("EscapePodArmature").Find("Base").Find("Flames").gameObject;
+            flames.transform.SetParent(hellDiverPodPrefab.transform.Find("mdlHellPod").Find("ArmaturePod").Find("Base"));
+            flames.transform.localPosition = new Vector3(0, 0, 0f);
+            flames.transform.localRotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, 90f, Quaternion.identity.w);
+
         }
         #region effects
         private static void CreateEffects()
@@ -72,6 +85,9 @@ namespace HellDiverMod.Survivors.HellDiver
         #region projectiles
         private static void CreateProjectiles()
         {
+            stratagemProjectile = assetBundle.LoadAsset<GameObject>("StratagemProjectile");
+            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoGrenadeGhost.prefab").WaitForCompletion();
+
             knifePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2ShivProjectile.prefab").WaitForCompletion().InstantiateClone("DiverKnife");
             knifePrefab.AddComponent<NetworkIdentity>();
             knifePrefab.GetComponent<SphereCollider>().radius = 0.5f;
