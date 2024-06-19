@@ -430,7 +430,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 forceSprintDuringState = false,
 
                 graceDuration = 1.5f,
-                reloadState = new EntityStates.SerializableEntityStateType(typeof(EnterReload)),
+                reloadState = new EntityStates.SerializableEntityStateType(typeof(EnterReloadRevolver)),
                 reloadInterruptPriority = InterruptPriority.Any,
 
             });
