@@ -17,8 +17,6 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/base
     m_Weight: 0
-  - m_Path: Armature/ROOT/base/ik.head
-    m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis
     m_Weight: 0
   - m_Path: Armature/ROOT/base/pelvis/thigh.l
@@ -395,6 +393,8 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/base/stomach/chest/shoulder.r/upperarm.r/lowerarm.r/hand.r/weapon.r/weaponhead.r
     m_Weight: 0
+  - m_Path: Armature/ROOT/ik.aim
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.elbow.l
     m_Weight: 0
   - m_Path: Armature/ROOT/ik.elbow.r
@@ -407,17 +407,19 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Armature/ROOT/ik.hand.r
     m_Weight: 0
+  - m_Path: Armature/ROOT/ik.head
+    m_Weight: 0
   - m_Path: Armature/ROOT/ik.knee.l
     m_Weight: 0
   - m_Path: Armature/ROOT/ik.knee.r
+    m_Weight: 0
+  - m_Path: meshAR
     m_Weight: 0
   - m_Path: meshArcThrower
     m_Weight: 0
   - m_Path: meshArmor
     m_Weight: 0
   - m_Path: meshBazooka
-    m_Weight: 0
-  - m_Path: meshBazookaRocket
     m_Weight: 0
   - m_Path: meshBody
     m_Weight: 0
