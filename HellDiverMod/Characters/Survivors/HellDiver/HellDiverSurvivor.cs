@@ -405,7 +405,7 @@ namespace HellDiverMod.Survivors.HellDiver
             {
                 skillName = "HellDiverRevolver",
                 skillNameToken = HELLDIVER_PREFIX + "PRIMARY_REVOLVER_NAME",
-                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_REVOVLER_DESCRIPTION",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_REVOLVER_DESCRIPTION",
                 keywordTokens = new string[] { },
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
