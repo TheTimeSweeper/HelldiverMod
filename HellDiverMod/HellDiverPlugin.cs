@@ -22,7 +22,9 @@ namespace HellDiverMod
         public const string DEVELOPER_PREFIX = "LIBERTEAM";
 
         public static HellDiverPlugin instance;
-        
+
+        public static bool emotesInstalled => BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI");
+
         void Start()
         {
             Modules.SoundBanks.Init();

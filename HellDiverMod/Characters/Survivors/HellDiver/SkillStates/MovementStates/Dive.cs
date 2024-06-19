@@ -21,6 +21,10 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
                 PlayCrossfade("Body", "DiveToStanding", "Dash.playbackRate", 0.5f, 0.01f);
                 outer.SetNextStateToMain();
             }
+            else if(base.isAuthority && inputBank.jump.justPressed)
+            {
+                outer.SetNextStateToMain();
+            }
         }
     }
 }

@@ -18,11 +18,13 @@ namespace HellDiverMod.Survivors.HellDiver
         public static GameObject hellDiverUI;
         public static GameObject hellDiverPodPrefab;
         public static GameObject knifePrefab;
+        public static Material matDiver;
         public static AssetBundle assetBundle;
         public static void Init(AssetBundle bundle)
         {
             assetBundle = bundle;
 
+            CreateMaterials();
             CreateModels();
             CreateProjectiles();
 
@@ -44,8 +46,6 @@ namespace HellDiverMod.Survivors.HellDiver
             StratagemUIEntry entryComponent = entry.GetComponent<StratagemUIEntry>();
             entryComponent.skillIcon = skillRoot.GetComponent<SkillIcon>();
             hellDiverUI.GetComponent<HellDiverUI>().entryPrefab = entryComponent;
-
-
         }
 
         private static void CleanChildren(Transform startingTrans)
@@ -62,6 +62,7 @@ namespace HellDiverMod.Survivors.HellDiver
 
         private static void CreateMaterials()
         {
+            matDiver = assetBundle.LoadAsset<Material>("matDiver");
         }
 
         private static void CreateModels()
@@ -86,7 +87,9 @@ namespace HellDiverMod.Survivors.HellDiver
         private static void CreateProjectiles()
         {
             stratagemProjectile = assetBundle.LoadAsset<GameObject>("StratagemProjectile");
-            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoGrenadeGhost.prefab").WaitForCompletion();
+            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoGrenadeGhost.prefab").WaitForCompletion().InstantiateClone("StratagemProjectileGhost");
+            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).GetComponent<MeshRenderer>().material = matDiver;
+            stratagemProjectile.GetComponent<ProjectileController>().ghostPrefab.transform.GetChild(0).GetComponent<MeshFilter>().mesh = assetBundle.LoadAsset<Mesh>("meshStratagem");
 
             knifePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2ShivProjectile.prefab").WaitForCompletion().InstantiateClone("DiverKnife");
             knifePrefab.AddComponent<NetworkIdentity>();

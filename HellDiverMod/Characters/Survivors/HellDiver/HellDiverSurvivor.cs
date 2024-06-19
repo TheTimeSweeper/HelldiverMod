@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using EmotesAPI;
 using EntityStates;
 using EntityStates.Engi.Mine;
 using HellDiverMod.General.Components;
@@ -15,6 +16,7 @@ using RoR2.Skills;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace HellDiverMod.Survivors.HellDiver
@@ -823,8 +825,19 @@ namespace HellDiverMod.Survivors.HellDiver
         {
             On.RoR2.UI.HUD.Awake += HUD_Awake;
             On.RoR2.Stage.RespawnCharacter += Stage_RespawnCharacter;
+            if (HellDiverPlugin.emotesInstalled) Emotes();
         }
 
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        private static void Emotes()
+        {
+            On.RoR2.SurvivorCatalog.Init += (orig) =>
+            {
+                orig();
+                var skele = HellDiverAssets.assetBundle.LoadAsset<GameObject>("helldiver_emoteskeleton");
+                CustomEmotesAPI.ImportArmature(HellDiverSurvivor.characterPrefab, skele);
+            };
+        }
         private void Stage_RespawnCharacter(On.RoR2.Stage.orig_RespawnCharacter orig, Stage self, CharacterMaster characterMaster)
         {
             bool firstStage = false;
