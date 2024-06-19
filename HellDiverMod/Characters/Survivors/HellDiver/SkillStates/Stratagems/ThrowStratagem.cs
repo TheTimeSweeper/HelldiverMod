@@ -22,7 +22,10 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             stratagemInputController.QueueStratagem();
             stratagemInputController.Reset();
 
-            if (isAuthority)
+            base.PlayAnimation("Gesture, Override", "ThrowGrenade", "Throw.playbackRate", this.duration);
+
+
+            if (base.isAuthority)
             {
                 FireStratagemProjectile();
             }

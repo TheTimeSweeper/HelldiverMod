@@ -64,7 +64,74 @@ namespace HellDiverMod.Survivors.HellDiver
 
             jumpCount = 1,
         };
+        public override CustomRendererInfo[] customRendererInfos => new CustomRendererInfo[]
+{
+                new CustomRendererInfo
+                {
+                    childName = "Model",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArcThrowerModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArmorModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "BazookaModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "BodyModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "CapeModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "DeagleModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "HeavyMGModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "JapaneseBloodFlowsThroughMyVeinsHatModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "KatanaModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ShotgunModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "PistolModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RailgunModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RevolverModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "RocketLauncherModel",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "SyringeModel",
+                },
 
+};
         public override UnlockableDef characterUnlockableDef => null; // GIUnlockables.characterUnlockableDef;
 
         public override ItemDisplaysBase itemDisplays { get; } = new HellDiverMod.General.JoeItemDisplays();
@@ -130,6 +197,7 @@ namespace HellDiverMod.Survivors.HellDiver
             Prefabs.AddMainEntityStateMachine(bodyPrefab, "Body", typeof(MainState), typeof(EntityStates.SpawnTeleporterState));
             
             Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon");
+            Prefabs.AddEntityStateMachine(bodyPrefab, "Weapon2");
             Prefabs.AddEntityStateMachine(bodyPrefab, "Dive");
         }
 
@@ -332,7 +400,43 @@ namespace HellDiverMod.Survivors.HellDiver
                     true
                 ));
 
-            Skills.AddPrimarySkills(bodyPrefab, pistolDef);
+            ReloadSkillDef arSkillDef = Skills.CreateReloadSkillDef(new ReloadSkillDefInfo
+            {
+                skillName = "HellDiverAR",
+                skillNameToken = HELLDIVER_PREFIX + "PRIMARY_ASSAULT_RIFLE_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "PRIMARY_ASSAULT_RIFLE_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+
+                activationState = new EntityStates.SerializableEntityStateType(typeof(DiverFireAR)),
+                activationStateMachineName = "Weapon",
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+
+                baseRechargeInterval = 0f,
+                baseMaxStock = 30,
+
+                rechargeStock = 0,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = false,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = true,
+                forceSprintDuringState = false,
+
+                graceDuration = 1.5f,
+                reloadState = new EntityStates.SerializableEntityStateType(typeof(EnterReload)),
+                reloadInterruptPriority = InterruptPriority.Any,
+
+            });
+
+            Skills.AddPrimarySkills(bodyPrefab, pistolDef, arSkillDef);
         }
 
         private void AddSecondarySkills()
@@ -347,7 +451,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 
                 activationState = new EntityStates.SerializableEntityStateType(typeof(EntityStates.Commando.CommandoWeapon.ThrowGrenade)),
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Weapon2",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
                 baseRechargeInterval = 5f,
@@ -358,7 +462,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 stockToConsume = 1,
 
                 resetCooldownTimerOnUse = false,
-                fullRestockOnAssign = false,
+                fullRestockOnAssign = true,
                 dontAllowPastMaxStocks = false,
                 mustKeyPress = false,
                 beginSkillCooldownOnSkillEnd = false,
@@ -369,8 +473,39 @@ namespace HellDiverMod.Survivors.HellDiver
                 forceSprintDuringState = false,
 
             });
+            SkillDef knifeDef = Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = "HellDiverKnifeThrow",
+                skillNameToken = HELLDIVER_PREFIX + "SECONDARY_KNIFETHROW_NAME",
+                skillDescriptionToken = HELLDIVER_PREFIX + "SECONDARY_KNIFETHROW_DESCRIPTION",
+                keywordTokens = new string[] { },
+                skillIcon = assetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
 
-            Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1);
+                activationState = new EntityStates.SerializableEntityStateType(typeof(KnifeThrow)),
+                activationStateMachineName = "Weapon2",
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+
+                baseRechargeInterval = 5f,
+                baseMaxStock = 1,
+
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+
+                resetCooldownTimerOnUse = false,
+                fullRestockOnAssign = true,
+                dontAllowPastMaxStocks = false,
+                mustKeyPress = false,
+                beginSkillCooldownOnSkillEnd = false,
+
+                isCombatSkill = true,
+                canceledFromSprinting = false,
+                cancelSprintingOnActivation = false,
+                forceSprintDuringState = false,
+
+            });
+
+            Skills.AddSecondarySkills(bodyPrefab, secondarySkillDef1, knifeDef);
         }
 
         private void AddUtiitySkills()
@@ -383,7 +518,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 skillDescriptionToken = HELLDIVER_PREFIX + "UTILITY_DIVE_DESCRIPTION",
                 skillIcon = assetBundle.LoadAsset<Sprite>("texUtilityIcon"),
 
-                activationState = new EntityStates.SerializableEntityStateType(typeof(Dive)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(StartDive)),
                 activationStateMachineName = "Dive",
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
@@ -710,7 +845,6 @@ namespace HellDiverMod.Survivors.HellDiver
                 {
                     self.spawnedAnyPlayer = true;
                 }
-                characterMaster.GetBody().modelLocator.modelBaseTransform.GetComponent<CharacterModel>().invisibilityCount++;
                 Run.instance.HandlePlayerFirstEntryAnimation(characterMaster.GetBody(), vector, quaternion);
             }
             else
