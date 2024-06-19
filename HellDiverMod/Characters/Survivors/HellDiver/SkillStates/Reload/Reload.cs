@@ -18,16 +18,17 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         private bool dontPlay = false;
         private bool hasGivenStock = false;
 
+        protected virtual float _baseDuration => baseDuration;
         public override void OnEnter()
         {
             RefreshState();
             base.OnEnter();
-            this.duration = baseDuration / attackSpeedStat;
+            this.duration = _baseDuration / attackSpeedStat;
             if (this.hellDiverController.stageReload > 0f) this.duration = this.hellDiverController.stageReload;
             else this.hellDiverController.stageReload = this.duration;
             this.startReload = 0.04f * duration;
             this.magInserted = 0.6f * duration;
-            base.PlayCrossfade("Gesture, Override", "ReloadAR", this.duration); // DO THIS LATER
+            base.PlayCrossfade("Gesture, Override", "ReloadAR", this.duration); // DO THIS LATER                   TODO- NEED GUN SPIN FOR REVOVLER
         }
         public override void FixedUpdate()
         {

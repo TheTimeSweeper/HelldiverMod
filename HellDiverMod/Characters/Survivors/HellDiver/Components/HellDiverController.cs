@@ -54,6 +54,19 @@ namespace HellDiverMod.Survivors.HellDiver.Components
                 primaryGunString = "ARModel";
                 currentGunAnim = "Body, AR";
             }
+            else if (HellDiverSurvivor.HELLDIVER_PREFIX + "PRIMARY_SHOTGUN_NAME" == skillLocator.primary.skillNameToken)
+            {
+                this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body, Shotgun"), 1f);
+                this.childLocator.FindChild("ShotgunModel").gameObject.SetActive(true);
+                primaryGunString = "ShotgunModel";
+                currentGunAnim = "Body, Shotgun";
+            }
+            else if (HellDiverSurvivor.HELLDIVER_PREFIX + "PRIMARY_REVOLVER_NAME" == skillLocator.primary.skillNameToken)
+            {
+                this.animator.SetLayerWeight(this.animator.GetLayerIndex("Body"), 1f);
+                this.childLocator.FindChild("RevolverModel").gameObject.SetActive(true);
+                primaryGunString = "RevovlerModel";
+            }
         }
 
         public void EquipGunString(string gunString, string gunAnimString)
