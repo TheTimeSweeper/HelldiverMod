@@ -486,7 +486,7 @@ namespace HellDiverMod.Survivors.HellDiver
                 interruptPriority = EntityStates.InterruptPriority.Skill,
 
                 baseRechargeInterval = 0f,
-                baseMaxStock = 1,
+                baseMaxStock = 7,
 
                 rechargeStock = 0,
                 requiredStock = 1,

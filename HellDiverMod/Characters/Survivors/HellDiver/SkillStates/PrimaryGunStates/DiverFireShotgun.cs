@@ -16,9 +16,9 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         public static int bulletCount = 10;
         public static float bulletSpread = 7f;
 
-        public static float damageCoefficient = 1.25f;
+        public static float damageCoefficient = 1f;
         public static float procCoefficient = 0.8f;
-        public static float baseDuration = 0.1f;
+        public static float baseDuration = 1.25f;
         public static float force = 200f;
         public static float recoil = 20f;
         public static float range = 2000f;
@@ -28,12 +28,14 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         private float duration;
         private float fireTime;
         private bool hasFired;
+        private bool hasPlayed;
         private string muzzleString;
         private bool isCrit;
 
         protected virtual float _damageCoefficient => DiverFireShotgun.damageCoefficient;
         protected virtual GameObject tracerPrefab => this.isCrit ? DiverFireShotgun.critTracerEffectPrefab : DiverFireShotgun.tracerEffectPrefab;
-        public virtual string shootSoundString => "Play_commando_R";
+        public virtual string shootSoundString => "Play_captain_m1_shootWide";
+        public string pumpSoundString = "Play_captain_m1_reload";
         public virtual BulletAttack.FalloffModel falloff => BulletAttack.FalloffModel.DefaultBullet;
 
         public override void OnEnter()
@@ -50,7 +52,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             this.hasFired = true;
             this.Fire();
 
-            this.PlayAnimation("Gesture, Override", "ShootShotgun", "Shoot.playbackRate", this.duration * 2.5f);
+            this.PlayAnimation("Gesture, Override", "ShootShotgun", "Shoot.playbackRate", baseDuration * 1.5f / this.attackSpeedStat);
         }
 
         public override void OnExit()
@@ -126,6 +128,11 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
         {
             base.FixedUpdate();
 
+            if(base.fixedAge >= (baseDuration / 2f) / this.attackSpeedStat && !hasPlayed)
+            {
+                hasPlayed = true;
+                Util.PlaySound(pumpSoundString, base.gameObject);
+            }
             if (base.fixedAge >= this.duration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();

@@ -39,7 +39,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
 
             this.isCrit = base.RollCrit();
             this.Fire();
-            this.PlayAnimation("Gesture, Override", "ShootPistol", "Shoot.playbackRate", this.duration * 2.5f);
+            this.PlayAnimation("Gesture, Override", "ShootPistol", "Shoot.playbackRate", 1f / this.attackSpeedStat);
         }
 
         public override void OnExit()

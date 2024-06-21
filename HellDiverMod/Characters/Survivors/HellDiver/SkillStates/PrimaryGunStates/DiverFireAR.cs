@@ -46,7 +46,7 @@ namespace HellDiverMod.Survivors.HellDiver.SkillStates
             this.hasFired = true;
             this.Fire();
 
-            this.PlayAnimation("Gesture, Override", "ShootAR", "Shoot.playbackRate", this.duration * 2.5f);
+            this.PlayAnimation("Gesture, Override", "ShootAR", "Shoot.playbackRate", 1f / this.attackSpeedStat);
         }
 
         public override void OnExit()
