@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -132,7 +134,7 @@ GameObject:
   - component: {fileID: 7102139}
   - component: {fileID: 7102138}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Pod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +167,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.73, y: 1.5290062, z: -0.08789015}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -245,6 +248,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &796598206
@@ -257,6 +261,7 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -341,6 +346,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5281765328952476808}
   m_RootOrder: 0
@@ -389,11 +395,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Address: RoR2/Base/UI/HUDSimple.prefab
-  replaceSelf: 1
+  replaceSelf: 0
   OnInstantiated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1072737658}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
         m_MethodName: AddHellDiverUI
         m_Mode: 1
         m_Arguments:
@@ -414,6 +421,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 80, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -466,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -498,6 +507,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -569,6 +579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: helldiver_emoteskeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 1049038839846184307, guid: 2cd051db575fae347bc57e1af419b4c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cd051db575fae347bc57e1af419b4c4, type: 3}
 --- !u!1001 &5281765328952476807
@@ -586,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 5281765328443022568, guid: b734c919eb47dfc429f769f0869bdb59,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5281765328443022581, guid: b734c919eb47dfc429f769f0869bdb59,
         type: 3}
@@ -645,6 +660,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5281765328443022583, guid: b734c919eb47dfc429f769f0869bdb59,
         type: 3}
+      propertyPath: passengerState._typeName
+      value: EntityStates.GenericCharacterPod, RoR2, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281765328443022583, guid: b734c919eb47dfc429f769f0869bdb59,
+        type: 3}
       propertyPath: isEquipmentActivationAllowed
       value: 0
       objectReference: {fileID: 0}
@@ -663,16 +684,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3639850729267376634, guid: eaf1aa923326ef148a31fcdb02eb377d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966002932482286017, guid: eaf1aa923326ef148a31fcdb02eb377d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6930934692914288868, guid: eaf1aa923326ef148a31fcdb02eb377d,
         type: 3}
       propertyPath: m_RootOrder
