@@ -1,9 +1,9 @@
 # The most important decision of your life
 
-### Upgrading from before sots
+### upgrading from before sots
 if your project existed, follow this before you open the project again (or simply reclone from scratch)
 
-0. Pull the latest. this should basically update your ror2 packages, thunderkit settings, and package manifest.
+0. Pull the latest. this should basically update your ror2 packages thunderkit settings, and package manifest.
 1. go to the unity project files Packages folder
 1. delete the `Risk of Rain 2` folder and `packages-lock.json`
 1. reimport the game as below

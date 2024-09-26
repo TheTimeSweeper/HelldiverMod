@@ -33,7 +33,7 @@ namespace HellDiverMod.Survivors.HellDiver
             string outro = "..and so he dived, diver dive dive.";
             string outroFailure = "..and so he vanished, not HellDivering all over the place.";
 
-            Language.Add(prefix + "NAME", "Diver");
+            Language.Add(prefix + "NAME", "Helldiver");
             Language.Add(prefix + "DESCRIPTION", desc);
             Language.Add(prefix + "SUBTITLE", "");
             Language.Add(prefix + "LORE", lore);

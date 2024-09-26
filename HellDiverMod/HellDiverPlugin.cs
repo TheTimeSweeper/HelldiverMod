@@ -15,7 +15,7 @@ namespace HellDiverMod
     public class HellDiverPlugin : BaseUnityPlugin
     {
         public static bool failFaster = false;
-        public const string MODUID = "com.SuperEarthArmedForces.Helldiver";
+        public const string MODUID = "com.LiberTeam.Helldiver";
         public const string MODNAME = "Helldiver";
         public const string MODVERSION = "1.0.0";
 
@@ -27,7 +27,7 @@ namespace HellDiverMod
 
         void Start()
         {
-            Modules.SoundBanks.Init();
+            //Modules.SoundBanks.Init();
         }
         
         void Awake()

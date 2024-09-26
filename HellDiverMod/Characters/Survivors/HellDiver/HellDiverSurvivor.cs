@@ -25,7 +25,7 @@ namespace HellDiverMod.Survivors.HellDiver
     {
         public override string assetBundleName => "helldiverbundle";
 
-        public override string bodyName => "DiverBody";
+        public override string bodyName => "HellDiverBody";
         
         public override string masterName => "HellDiverMonsterMaster";
 

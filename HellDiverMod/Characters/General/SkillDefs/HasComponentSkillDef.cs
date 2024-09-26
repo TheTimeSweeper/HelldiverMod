@@ -1,9 +1,9 @@
 ﻿using EntityStates;
+using JetBrains.Annotations;
 using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using UnityEngine;
 
@@ -60,7 +60,7 @@ namespace HellDiverMod.General.SkillDefs
             public T componentFromSkillDef1;
             public U componentFromSkillDef2;
         }
-
+        
         public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
         {
             return new InstanceData
