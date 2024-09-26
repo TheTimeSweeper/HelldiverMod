@@ -1,4 +1,13 @@
 # The most important decision of your life
+
+### Upgrading from before sots
+if your project existed, follow this before you open the project again (or simply reclone from scratch)
+
+0. Pull the latest. this should basically update your ror2 packages, thunderkit settings, and package manifest.
+1. go to the unity project files Packages folder
+1. delete the `Risk of Rain 2` folder and `packages-lock.json`
+1. reimport the game as below
+
 ### Project Setup
 We're using Thunderkit to some capacity in order to make UI and Projectile development not a pain in the ass.
 
@@ -6,7 +15,7 @@ Buliding the assetbundle and building the mod will remain done how it is done in
 
 0. Clone the repo and open the unity project.  
     - You'll get a warning that there are compile errors. Hit Ignore (do not enter safe mode).
-    - Thunderkit, RoR2ImportExtensions, and SimplyAddress should already be in the packages manifest, and they'll install on first startup.  
+    - Thunderkit, RoR2ImportExtensions, RoR2EditorKit, and SimplyAddress should already be in the packages manifest, and they'll install on first startup.  
         - If not, reach out, because the project won't work from here on out.
 1. On the top hit Tools > Thunderkit > settings.  
     - If you don't see this, the thunderkit installation did not happen correctly. Again, look for errors, reach out, we gotta fix that
@@ -27,15 +36,15 @@ Buliding the assetbundle and building the mod will remain done how it is done in
 |Import Addressable Catalog | On | addressable is dope, we're using it to take a look at the game's hud to add our hud |
 |Configure Addressable Graphics Settings | On |  |
 |Ensure RoR2 Thunderstore Source | Off | thunderstore package downloading is brokey I think |
-|Install BepInEx| Off | already done |
+|Install BepInEx| Off | already there. |
 |Install RoR2 RoR2MultiplayerHLAPI | Off | we're not weaving in editor so we don't need this |
-|Install RoR2 Editor Kit | On | it works now gud job nebby |
+|Install RoR2 Editor Kit | OFF | already there. do not add a duplicate of this as it will cause issues. |
 |the rest | On |  |  
 
-- Note that these differ from the default thunderkit project settings outlined in other tutorials. we're only taking what we need for this project.
+- Note that these differ from the default thunderkit project settings outlined in other tutorials, because the project is already partly set up, and we're using thunderkit minimally.
 
 4. Head to the ThunderKit Settings on the left. hit browse on the right, locate your ror2 executible, then hit import
-5. A prompt will ask you to restart. I would hit yes
+5. A prompt will ask you to restart. hit yes
 6. let thunderkit do its thing. 
     - if you get windows about compile errors again, Ignore as usual.
 7. All goes smoothly, another prompt will ask you to restart again. I would hit yes again
