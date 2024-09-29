@@ -11,25 +11,35 @@ namespace HellDiverMod.Survivors.HellDiver.Components.UI {
         private Transform stratagemGrid;
         public StratagemUIEntry entryPrefab;
 
-        private List<StratagemUIEntry> entries = new List<StratagemUIEntry>();
+        private List<StratagemUIEntry> _entries = new List<StratagemUIEntry>();
 
-        private StratagemInputController inputController;
+        private StratagemInputController _inputController;
+
+        private bool _firstInit;
 
         public void OnInitialize(StratagemInputController companionComponent)
         {
-            inputController = companionComponent;
+            _inputController = companionComponent;
+            Show(false);
+        }
+
+        public void FirstInit()
+        {
+            if (_firstInit)
+                return;
+
             int i = 0;
-            for (; i < inputController.sequences.Count; i++)
+            for (; i < _inputController.sequences.Count; i++)
             {
-                if(i >= entries.Count)
+                if (i >= _entries.Count)
                 {
-                    entries.Add(Instantiate(entryPrefab, stratagemGrid));
+                    _entries.Add(Instantiate(entryPrefab, stratagemGrid));
                 }
-                entries[i].Init(inputController.sequences[i]);
+                _entries[i].Init(_inputController.sequences[i]);
             }
-            for (; i < entries.Count; i++)
+            for (; i < _entries.Count; i++)
             {
-                entries[i].Show(false);
+                _entries[i].Show(false);
             }
         }
 
@@ -37,27 +47,28 @@ namespace HellDiverMod.Survivors.HellDiver.Components.UI {
 
         public void Show(bool shouldShow)
         {
+            FirstInit();
             stratagemContainer.alpha = shouldShow? 1: 0;
         }
 
         public void UpdateSequence(int i, bool inputSuccess, int progress)
         {
-            entries[i].UpdateInput(inputSuccess, progress);
+            _entries[i].UpdateInput(inputSuccess, progress);
         }
 
         public void UpdateComplete(int completed)
         {
-            for (int i = 0; i < entries.Count; i++)
+            for (int i = 0; i < _entries.Count; i++)
             {
-                entries[i].UpdateComplete(i == completed);
+                _entries[i].UpdateComplete(i == completed);
             }
         }
 
         public void Reset()
         {
-            for (int i = 0; i < entries.Count; i++)
+            for (int i = 0; i < _entries.Count; i++)
             {
-                entries[i].Reset();
+                _entries[i].Reset();
             }
         }
     }

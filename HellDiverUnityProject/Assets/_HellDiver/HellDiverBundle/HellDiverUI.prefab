@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3643010540585671958}
   - component: {fileID: 7358689840212906756}
   - component: {fileID: 4699289235410265104}
+  - component: {fileID: 7191119178728398699}
   m_Layer: 5
   m_Name: StratagemContainer
   m_TagString: Untagged
@@ -28,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3111649027547677047}
   m_RootOrder: 0
@@ -73,6 +75,14 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!222 &7191119178728398699
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895460993287550915}
+  m_CullTransparentMesh: 1
 --- !u!1 &2871184720222408319
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +110,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3643010540585671958}
   m_Father: {fileID: 0}

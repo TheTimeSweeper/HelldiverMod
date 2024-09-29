@@ -41,6 +41,7 @@ namespace HellDiverMod.Survivors.HellDiver.Components.UI
         internal void InitArrow(StratagemInput stratagemInput)
         {
             image.sprite = inputSprites[(int)stratagemInput];
+            Reset();
         }
     }
 }
